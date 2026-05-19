@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>張懸的聲音 — 故事牆</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-label">一面故事牆</p>
+      <h1 class="site-title">張懸的聲音</h1>
+      <p class="site-en">Deserts Chang · 安溥</p>
+      <p class="site-desc">
+        如果她的歌曾經在某個時刻出現，<br>
+        如果某首曲子恰好接住了你，<br>
+        把那個故事留在這裡。<br>
+        <span class="desc-small">完全匿名。沒有名字，只有故事。</span>
+      </p>
+    </div>
+  </header>
+
+  <!-- Story Wall -->
+  <main class="story-wall" id="storyWall">
+    <div class="wall-loading" id="wallLoading">
+      <span>故事牆載入中</span>
+    </div>
+  </main>
+
+  <!-- Write Story FAB -->
+  <button class="fab" id="fabBtn" onclick="openModal()">
+    <svg class="fab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-5"/>
+      <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+    </svg>
+    <span class="fab-text">寫下我的故事</span>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" onclick="closeModal()" aria-label="關閉">✕</button>
+      <h2 class="modal-title" id="modalTitle">寫下你的故事</h2>
+      <p class="modal-sub">完全匿名發布，不留下任何身份。</p>
+
+      <div class="form-row">
+        <label class="form-label" for="songSelect">最愛的一首張懸歌曲<span class="optional">（可略）</span></label>
+        <div class="select-wrap">
+          <select class="form-select" id="songSelect">
+            <option value="">— 選擇一首歌 —</option>
+            <option>寶貝（在路上）</option>
+            <option>關於我愛你</option>
+            <option>玫瑰色的你</option>
+            <option>神的遊戲</option>
+            <option>儘管如此還是要愛你</option>
+            <option>無力去</option>
+            <option>喜劇之王</option>
+            <option>北方女王</option>
+            <option>before我和你</option>
+            <option>異鄉人</option>
+            <option>宇宙人</option>
+            <option>親愛的我</option>
+            <option>南方姑娘</option>
+            <option>各站停靠</option>
+            <option>好了</option>
+            <option>其他（在故事中提到）</option>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 12 8" fill="none">
+            <path d="M1 1l5 5 5-5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="storyText">你的故事</label>
+        <textarea
+          class="form-textarea"
+          id="storyText"
+          placeholder="她的歌在那個時刻出現，是因為..."
+          maxlength="500"
+        ></textarea>
+        <div class="char-row">
+          <span id="charCount">0</span><span class="char-max"> / 500</span>
+        </div>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" onclick="submitStory()">
+        張貼到故事牆
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
