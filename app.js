@@ -143,7 +143,7 @@ function enterEditMode() {
   editCharCount.textContent = currentStory.content.length;
   document.getElementById('detailContent').style.display = 'none';
   document.getElementById('detailActions').style.display = 'none';
-  document.getElementById('editMode').style.display = '';
+  document.getElementById('editMode').style.display = 'block';
   editText.focus();
 }
 
