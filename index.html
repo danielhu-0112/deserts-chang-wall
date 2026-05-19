@@ -13,6 +13,13 @@
 
   <!-- Header -->
   <header class="site-header">
+    <div class="auth-bar">
+      <div class="auth-user" id="authUser" style="display:none">
+        <span class="auth-email" id="authEmail"></span>
+        <button class="auth-link" onclick="logout()">登出</button>
+      </div>
+      <button class="auth-link" id="authLoginBtn" onclick="openLoginModal()">登入 / 註冊</button>
+    </div>
     <div class="header-inner">
       <p class="header-label">一面故事牆</p>
       <h1 class="site-title">張懸的聲音</h1>
@@ -42,12 +49,36 @@
     <span class="fab-text">寫下我的故事</span>
   </button>
 
-  <!-- Modal -->
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" onclick="closeLoginModal()" aria-label="關閉">✕</button>
+      <h2 class="modal-title">登入</h2>
+      <p class="modal-sub">輸入信箱，我們寄一封連結給你，點擊後直接登入，不需要設定密碼。</p>
+
+      <div id="loginStep1">
+        <div class="form-row">
+          <label class="form-label" for="loginEmail">信箱</label>
+          <input type="email" class="form-input visible" id="loginEmail"
+            placeholder="your@email.com" onkeydown="if(event.key==='Enter') sendMagicLink()">
+        </div>
+        <button class="submit-btn" id="magicLinkBtn" onclick="sendMagicLink()">寄送登入連結</button>
+      </div>
+
+      <div id="loginStep2" style="display:none">
+        <p class="login-sent-icon">✉</p>
+        <p class="login-sent-title">連結已寄出</p>
+        <p class="login-sent-sub">請去信箱點擊連結，回到這個頁面就會自動登入。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Write Story Modal -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close" onclick="closeModal()" aria-label="關閉">✕</button>
       <h2 class="modal-title" id="modalTitle">寫下你的故事</h2>
-      <p class="modal-sub">完全匿名發布，不留下任何身份。</p>
+      <p class="modal-sub">發布後只有你能編輯或刪除。</p>
 
       <div class="form-row">
         <label class="form-label" for="songSelect">最愛的一首張懸歌曲<span class="optional">（可略）</span></label>
@@ -126,23 +157,14 @@
             <path d="M1 1l5 5 5-5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <input
-          type="text"
-          class="form-input"
-          id="customSong"
-          placeholder="輸入歌曲名稱（例如 cover 曲）"
-          maxlength="80"
-        />
+        <input type="text" class="form-input" id="customSong"
+          placeholder="輸入歌曲名稱（例如 cover 曲）" maxlength="80"/>
       </div>
 
       <div class="form-row">
         <label class="form-label" for="storyText">你的故事</label>
-        <textarea
-          class="form-textarea"
-          id="storyText"
-          placeholder="她的歌在那個時刻出現，是因為..."
-          maxlength="500"
-        ></textarea>
+        <textarea class="form-textarea" id="storyText"
+          placeholder="她的歌在那個時刻出現，是因為..." maxlength="500"></textarea>
         <div class="char-row">
           <span id="charCount">0</span><span class="char-max"> / 500</span>
         </div>
