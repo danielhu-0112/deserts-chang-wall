@@ -139,97 +139,139 @@ body {
   opacity: 0.8;
 }
 
-/* === Lyric Art === */
-.lyric-art {
+/* === Lyric Art Panel === */
+.lart {
   position: relative;
-  background: linear-gradient(180deg, #FFF8EE 0%, #FBF4E8 100%);
-  border-bottom: 1px solid var(--border);
-  padding: 3rem 2rem 2.8rem;
-  text-align: center;
+  min-height: clamp(300px, 42vw, 440px);
   overflow: hidden;
+  background: linear-gradient(
+    165deg,
+    #2E1F10 0%,
+    #5A3520 20%,
+    #9B6438 55%,
+    #C4956A 78%,
+    #FBF4E8 100%
+  );
 }
 
-.lyric-bg {
+/* Cloud blobs — blurred radial shapes */
+.lart-blob {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: clamp(5rem, 18vw, 11rem);
-  font-weight: 600;
-  color: rgba(196, 149, 106, 0.07);
-  letter-spacing: 0.3em;
-  white-space: nowrap;
+  border-radius: 50%;
   pointer-events: none;
-  user-select: none;
-  line-height: 1;
 }
 
-.lyric-body {
+.lart-blob--a {
+  width: 65%;
+  height: 85%;
+  bottom: -25%;
+  left: -8%;
+  background: radial-gradient(ellipse, #C4824A 0%, #A05A28 45%, transparent 80%);
+  filter: blur(72px);
+  opacity: 0.9;
+}
+
+.lart-blob--b {
+  width: 50%;
+  height: 55%;
+  top: -15%;
+  right: 5%;
+  background: radial-gradient(ellipse, #E0A860 0%, #B87030 55%, transparent 85%);
+  filter: blur(55px);
+  opacity: 0.55;
+}
+
+.lart-blob--c {
+  width: 40%;
+  height: 50%;
+  top: 15%;
+  left: 28%;
+  background: radial-gradient(ellipse, #F5D8A0 0%, #D8A060 65%, transparent 100%);
+  filter: blur(45px);
+  opacity: 0.4;
+}
+
+.lart-blob--d {
+  width: 55%;
+  height: 40%;
+  bottom: 5%;
+  right: -10%;
+  background: radial-gradient(ellipse, #D49858 0%, #A86C30 60%, transparent 90%);
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+/* Bottom fade to merge with page */
+.lart-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, #FBF4E8);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Text content */
+.lart-content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.1rem;
+  align-items: flex-start;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 6vw, 4rem);
+  padding-bottom: 3.5rem;
 }
 
-.lyr {
+.lart-line {
   font-family: 'Noto Serif TC', serif;
-  line-height: 2;
-  letter-spacing: 0.06em;
-  color: var(--text);
   margin: 0;
+  letter-spacing: 0.07em;
+  color: rgba(255, 245, 225, 0.92);
+  line-height: 1.75;
 }
 
-.lyr--ghost {
-  font-size: clamp(0.72rem, 1.8vw, 0.85rem);
-  color: var(--text-muted);
-  opacity: 0.45;
+.lart-ghost {
+  font-size: clamp(0.72rem, 1.6vw, 0.85rem);
+  opacity: 0.4;
+  margin-bottom: 0.15rem;
 }
 
-.lyr--indent { letter-spacing: 0.03em; }
+.lart-ghost--sm { opacity: 0.28; }
 
-.lyr-divider {
-  width: 32px;
-  height: 1px;
-  background: rgba(196, 149, 106, 0.3);
-  margin: 0.8rem auto;
-}
-
-.lyr--hero {
-  font-size: clamp(1.15rem, 3.5vw, 1.6rem);
+.lart-hero {
+  font-size: clamp(1.1rem, 3vw, 1.65rem);
   font-weight: 500;
-  color: var(--text);
-  letter-spacing: 0.1em;
-  line-height: 1.9;
+  margin-top: 0.9rem;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.25);
 }
 
-.lyr--warm { color: var(--accent-dk); }
+.lart-hero--warm { color: rgba(255, 225, 170, 0.95); }
 
-.lyr--mid {
-  font-size: clamp(0.88rem, 2.2vw, 1.05rem);
-  color: var(--text-muted);
-  margin-top: 0.3rem;
-  opacity: 0.8;
+.lart-mid {
+  font-size: clamp(0.85rem, 1.9vw, 1rem);
+  margin-top: 0.7rem;
+  opacity: 0.65;
 }
 
-.lyr--whisper {
-  font-size: clamp(0.78rem, 1.8vw, 0.88rem);
-  color: var(--accent);
-  opacity: 0.6;
-  letter-spacing: 0.25em;
-  margin-top: 0.6rem;
+.lart-whisper {
+  font-size: clamp(0.75rem, 1.5vw, 0.88rem);
   font-style: italic;
+  letter-spacing: 0.22em;
+  margin-top: 1rem;
+  opacity: 0.45;
 }
 
-.lyric-credit {
-  position: relative;
-  z-index: 1;
-  margin-top: 1.8rem;
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  opacity: 0.45;
-  letter-spacing: 0.15em;
+.lart-credit {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.8rem;
+  z-index: 3;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.7rem;
+  color: rgba(255, 245, 225, 0.3);
+  letter-spacing: 0.18em;
   font-style: italic;
 }
 
