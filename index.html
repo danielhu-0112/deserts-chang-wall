@@ -154,6 +154,32 @@
     </div>
   </div>
 
+  <!-- Story Detail Modal -->
+  <div class="modal-overlay" id="detailOverlay">
+    <div class="modal modal--detail" role="dialog" aria-modal="true">
+      <button class="modal-close" onclick="closeDetail()" aria-label="關閉">✕</button>
+      <div class="detail-song" id="detailSong"></div>
+      <div class="detail-content" id="detailContent"></div>
+      <div class="detail-date" id="detailDate"></div>
+
+      <div class="detail-actions" id="detailActions">
+        <button class="action-btn action-btn--edit" onclick="enterEditMode()">編輯故事</button>
+        <button class="action-btn action-btn--delete" onclick="confirmDelete()">刪除</button>
+      </div>
+
+      <div class="edit-mode" id="editMode">
+        <textarea class="form-textarea" id="editText" maxlength="500"></textarea>
+        <div class="char-row">
+          <span id="editCharCount">0</span><span class="char-max"> / 500</span>
+        </div>
+        <div class="edit-actions">
+          <button class="action-btn action-btn--cancel" onclick="exitEditMode()">取消</button>
+          <button class="submit-btn submit-btn--sm" id="saveEditBtn" onclick="saveEdit()">儲存修改</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="app.js"></script>
 </body>
