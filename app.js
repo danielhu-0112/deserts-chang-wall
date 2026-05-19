@@ -15,6 +15,7 @@ const storyText  = document.getElementById('storyText');
 const charCount  = document.getElementById('charCount');
 const submitBtn  = document.getElementById('submitBtn');
 const songSelect = document.getElementById('songSelect');
+const customSong = document.getElementById('customSong');
 
 // ── Load stories ────────────────────────────────────────────
 async function loadStories() {
@@ -94,6 +95,12 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
+// ── Custom song toggle ───────────────────────────────────────
+songSelect.addEventListener('change', () => {
+  customSong.classList.toggle('visible', songSelect.value === '__custom__');
+  if (songSelect.value === '__custom__') customSong.focus();
+});
+
 // ── Char counter ─────────────────────────────────────────────
 storyText.addEventListener('input', () => {
   charCount.textContent = storyText.value.length;
@@ -102,7 +109,9 @@ storyText.addEventListener('input', () => {
 // ── Submit ───────────────────────────────────────────────────
 async function submitStory() {
   const content = storyText.value.trim();
-  const song    = songSelect.value || null;
+  const song    = songSelect.value === '__custom__'
+    ? (customSong.value.trim() || null)
+    : (songSelect.value || null);
 
   if (!content) { storyText.focus(); return; }
   if (content.length < 10) {
@@ -141,6 +150,8 @@ async function submitStory() {
   storyText.value = '';
   charCount.textContent = '0';
   songSelect.value = '';
+  customSong.value = '';
+  customSong.classList.remove('visible');
   submitBtn.disabled = false;
   submitBtn.textContent = '張貼到故事牆';
   closeModal();

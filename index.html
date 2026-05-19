@@ -54,27 +54,85 @@
         <div class="select-wrap">
           <select class="form-select" id="songSelect">
             <option value="">— 選擇一首歌 —</option>
-            <option>寶貝（在路上）</option>
-            <option>關於我愛你</option>
-            <option>玫瑰色的你</option>
-            <option>神的遊戲</option>
-            <option>儘管如此還是要愛你</option>
-            <option>無力去</option>
-            <option>喜劇之王</option>
-            <option>北方女王</option>
-            <option>before我和你</option>
-            <option>異鄉人</option>
-            <option>宇宙人</option>
-            <option>親愛的我</option>
-            <option>南方姑娘</option>
-            <option>各站停靠</option>
-            <option>好了</option>
-            <option>其他（在故事中提到）</option>
+            <optgroup label="《My Life Will...》2006">
+              <option>Scream</option>
+              <option>寶貝（in the night）</option>
+              <option>迷惑</option>
+              <option>So?!...</option>
+              <option>Ain't My Man</option>
+              <option>My Life Will</option>
+              <option>Live 酒館300秒</option>
+              <option>信任的樣子</option>
+              <option>無狀態</option>
+              <option>Malaimo</option>
+              <option>寶貝（in a day）</option>
+            </optgroup>
+            <optgroup label="《親愛的...我還不知道》2007">
+              <option>畢竟</option>
+              <option>嫁禍進行式</option>
+              <option>喜歡</option>
+              <option>親愛的</option>
+              <option>Gonna Stop</option>
+              <option>兒歌</option>
+              <option>模樣</option>
+              <option>討人厭的字</option>
+              <option>欲望把眼前的地板舖滿</option>
+              <option>Outro</option>
+              <option>並不</option>
+            </optgroup>
+            <optgroup label="《城市》2009">
+              <option>關於我愛你</option>
+              <option>Beautiful Woman</option>
+              <option>Selling</option>
+              <option>南國的孩子</option>
+              <option>島嶼雲煙</option>
+              <option>就在</option>
+              <option>Stay-牡蠣之歌</option>
+              <option>城市</option>
+              <option>Love, New Year</option>
+              <option>巷口</option>
+            </optgroup>
+            <optgroup label="《神的遊戲》2012">
+              <option>玫瑰色的你</option>
+              <option>藍天白雲</option>
+              <option>兩者</option>
+              <option>如何</option>
+              <option>危險的，是</option>
+              <option>triste</option>
+              <option>我想你要走了</option>
+              <option>艷火</option>
+              <option>日子</option>
+            </optgroup>
+            <optgroup label="《9522》2022（以安溥名義）">
+              <option>idiot</option>
+              <option>silence of desire</option>
+              <option>李小龍</option>
+              <option>白吃白喝</option>
+              <option>Miss Missed Love</option>
+              <option>說說罷了</option>
+              <option>train to heaven</option>
+              <option>深夜，you were on my mind</option>
+              <option>這世界如此美好</option>
+              <option>deserts ride</option>
+              <option>女仞之詩</option>
+              <option>不識相</option>
+              <option>沒有寄的信</option>
+              <option>最好的時光</option>
+              <option>天高地闊</option>
+            </optgroup>
+            <option value="__custom__">其他（自填歌名）</option>
           </select>
           <svg class="select-arrow" viewBox="0 0 12 8" fill="none">
             <path d="M1 1l5 5 5-5" stroke="#8B7355" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
+        <input
+          type="text"
+          class="form-input"
+          id="customSong"
+          placeholder="輸入歌曲名稱（例如 cover 曲）"
+          maxlength="80"
+        />
       </div>
 
       <div class="form-row">

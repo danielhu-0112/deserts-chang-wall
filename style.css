@@ -338,6 +338,24 @@ body {
 .form-textarea:focus { outline: none; border-color: var(--accent); }
 .form-textarea::placeholder { color: #BBA98A; }
 
+.form-input {
+  display: none;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.62rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #fff;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.88rem;
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+
+.form-input.visible { display: block; }
+.form-input:focus { outline: none; border-color: var(--accent); }
+.form-input::placeholder { color: #BBA98A; }
+
 .char-row {
   text-align: right;
   font-size: 0.75rem;
