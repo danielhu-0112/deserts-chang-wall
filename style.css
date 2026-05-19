@@ -48,7 +48,7 @@ body {
 
 .auth-email {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: rgba(255, 235, 205, 0.65);
   max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -58,18 +58,17 @@ body {
 .auth-link {
   font-family: 'Noto Serif TC', serif;
   font-size: 0.78rem;
-  color: var(--accent);
+  color: rgba(255, 235, 205, 0.75);
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
   text-underline-offset: 3px;
-  opacity: 0.8;
   transition: opacity 0.15s;
 }
 
-.auth-link:hover { opacity: 1; }
+.auth-link:hover { opacity: 1; color: #FFF5E8; }
 
 /* === Login Modal === */
 .login-sent-icon {
@@ -94,7 +93,7 @@ body {
 
 /* === Header === */
 .site-header {
-  background: linear-gradient(150deg, #E8B878 0%, #F0CC98 35%, #F8E0B8 65%, #FBF0DC 100%);
+  background: #B8784A;
   border-bottom: none;
   padding: 3.5rem 1.5rem 2.8rem;
   text-align: center;
@@ -105,7 +104,7 @@ body {
 .header-label {
   font-size: 0.78rem;
   letter-spacing: 0.25em;
-  color: var(--accent);
+  color: rgba(255, 240, 215, 0.65);
   text-transform: uppercase;
   margin-bottom: 0.9rem;
 }
@@ -114,13 +113,13 @@ body {
   font-size: clamp(2rem, 6vw, 3.2rem);
   font-weight: 600;
   letter-spacing: 0.08em;
-  color: var(--text);
+  color: #FFF5E8;
   margin-bottom: 0.4rem;
 }
 
 .site-en {
   font-size: 0.88rem;
-  color: var(--accent);
+  color: rgba(255, 235, 205, 0.7);
   letter-spacing: 0.18em;
   font-style: italic;
   margin-bottom: 1.5rem;
@@ -128,7 +127,7 @@ body {
 
 .site-desc {
   font-size: 0.94rem;
-  color: var(--text-muted);
+  color: rgba(255, 235, 205, 0.7);
   line-height: 2;
 }
 
@@ -144,14 +143,7 @@ body {
   position: relative;
   min-height: clamp(200px, 28vw, 300px);
   overflow: hidden;
-  background: linear-gradient(
-    165deg,
-    #4A2C10 0%,
-    #7A4828 22%,
-    #A86C3A 52%,
-    #C8906A 76%,
-    #FBF4E8 100%
-  );
+  background: #B8784A;
 }
 
 /* Cloud blobs — blurred radial shapes */
