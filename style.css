@@ -139,6 +139,100 @@ body {
   opacity: 0.8;
 }
 
+/* === Lyric Art === */
+.lyric-art {
+  position: relative;
+  background: linear-gradient(180deg, #FFF8EE 0%, #FBF4E8 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem 2.8rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.lyric-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(5rem, 18vw, 11rem);
+  font-weight: 600;
+  color: rgba(196, 149, 106, 0.07);
+  letter-spacing: 0.3em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+.lyric-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.lyr {
+  font-family: 'Noto Serif TC', serif;
+  line-height: 2;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  margin: 0;
+}
+
+.lyr--ghost {
+  font-size: clamp(0.72rem, 1.8vw, 0.85rem);
+  color: var(--text-muted);
+  opacity: 0.45;
+}
+
+.lyr--indent { letter-spacing: 0.03em; }
+
+.lyr-divider {
+  width: 32px;
+  height: 1px;
+  background: rgba(196, 149, 106, 0.3);
+  margin: 0.8rem auto;
+}
+
+.lyr--hero {
+  font-size: clamp(1.15rem, 3.5vw, 1.6rem);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  line-height: 1.9;
+}
+
+.lyr--warm { color: var(--accent-dk); }
+
+.lyr--mid {
+  font-size: clamp(0.88rem, 2.2vw, 1.05rem);
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  opacity: 0.8;
+}
+
+.lyr--whisper {
+  font-size: clamp(0.78rem, 1.8vw, 0.88rem);
+  color: var(--accent);
+  opacity: 0.6;
+  letter-spacing: 0.25em;
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+.lyric-credit {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.8rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  opacity: 0.45;
+  letter-spacing: 0.15em;
+  font-style: italic;
+}
+
 /* === Filter Bar === */
 .filter-bar {
   position: sticky;
